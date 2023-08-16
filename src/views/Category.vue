@@ -1,28 +1,27 @@
 <script setup>
   import { defineProps } from 'vue';
   import { useRouter } from 'vue-router';
+  import ItemList from "../components/ItemList.vue"
 
   const router = useRouter();
 
-  const props = defineProps({
-    category: String
-  })
+  const props = defineProps(['category'])
 
-  const validCategories = [
-    'hats',
-    'shirts',
-    'hoodies',
-    'jackets',
-    'shoes'
-  ]
-
-  if (!validCategories.includes(props.category)) {
+  const categories = {
+    "hats": 1,
+    "shirts": 2,
+    "hoodies": 3,
+    "jackets": 4,
+    "shoes": 5,
+  }
+  
+  if (!Object.keys(categories).includes(props.category)) {
     router.push({name: "notfound"})
   }
 </script>
 
 <template>
-  <div>{{ category }}</div>
+  <ItemList :category="categories[category]"/>
 </template>
 
 <style scoped>

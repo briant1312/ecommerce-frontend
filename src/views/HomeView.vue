@@ -5,7 +5,7 @@
   <img class="hero" src="../assets/images/hero.avif" alt="wall of clothing store">
   <main>
     <div class="section-container">
-      <p>Be Creative</p>
+      <p>Be Bold</p>
       <div class="image-container">
         <img class="section-image" src="../assets/images/woman-in-sweater.avif" alt="">
       </div>

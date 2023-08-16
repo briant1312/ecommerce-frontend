@@ -6,12 +6,15 @@ import { RouterLink } from 'vue-router';
 <template>
   <h1>Merch</h1>
   <nav>
-    <RouterLink to="/">Home</RouterLink>
-    <RouterLink to="/">Hats</RouterLink>
-    <RouterLink to="/">Shirts</RouterLink>
-    <RouterLink to="/">Hoodies</RouterLink>
-    <RouterLink to="/">Jackets</RouterLink>
-    <RouterLink to="/">Shoes</RouterLink>
+    <!-- there is an array inside of the Category.vue file that looks for these  -->
+    <!--  specific names. If you add something or change the name inside of the to= field -->
+    <!-- you will need to update that array otherwise you will get a 404 -->
+    <RouterLink to="/">home</RouterLink>
+    <RouterLink to="/hats">hats</RouterLink>
+    <RouterLink to="/shirts">shirts</RouterLink>
+    <RouterLink to="/hoodies">hoodies</RouterLink>
+    <RouterLink to="/jackets">jackets</RouterLink>
+    <RouterLink to="/shoes">shoes</RouterLink>
   </nav>
 </template>
 
@@ -20,7 +23,7 @@ import { RouterLink } from 'vue-router';
     display: flex;
     justify-content: space-around;
     background-color: white;
-    padding: 2.5em 0 2.5em 0;
+    padding: 2em 0 2em 0;
     position: sticky;
     top: 0;
   }
@@ -28,12 +31,11 @@ import { RouterLink } from 'vue-router';
   nav a {
     color: black;
     text-decoration: none;
-    font-size: 1.9rem;
+    font-size: 1.3rem;
     text-transform: uppercase;
   }
 
   h1 {
     text-align: center;
-    font-size: 3.4rem;
   }
 </style>

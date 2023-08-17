@@ -1,6 +1,7 @@
 <script setup>
   import { defineProps, ref, watch, toRefs } from 'vue';
   import * as itemApi from '../utilities/items.js'
+  import ProductListItem from '../components/ProductListItem.vue';
 
   const props = defineProps({
     category: Number
@@ -24,7 +25,17 @@
 </script>
 
 <template>
-  <div v-for="item of data">{{ item.name }}</div>
+  <div class="product-card-container">
+    <ProductListItem v-for="item of data" :product="item"></ProductListItem>
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+  .product-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3em;
+    margin-top: 3em;
+    justify-content: center;
+  }
+</style>

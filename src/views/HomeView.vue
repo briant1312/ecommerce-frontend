@@ -25,7 +25,7 @@
   </main>
 </template>
 
-<style>
+<style scoped>
 .hero {
   width: 100%;
   aspect-ratio: 4/2;

@@ -1,7 +1,7 @@
 <script setup>
   import { defineProps } from 'vue';
   import { useRouter } from 'vue-router';
-  import ItemList from "../components/ItemList.vue"
+  import ProductList from "../components/ProductList.vue"
 
   const router = useRouter();
 
@@ -21,7 +21,7 @@
 </script>
 
 <template>
-  <ItemList :category="categories[category]"/>
+  <ProductList :category="categories[category]"/>
 </template>
 
 <style scoped>

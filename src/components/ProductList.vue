@@ -1,5 +1,5 @@
 <script setup>
-  import { defineProps, ref, watch, toRefs } from 'vue';
+  import { ref, watch, toRefs } from 'vue';
   import * as itemApi from '../utilities/items.js'
   import ProductListItem from '../components/ProductListItem.vue';
 

@@ -12,8 +12,12 @@
   const data = ref([]);
 
   async function getData() {
-    const response = await itemApi.indexCategory(category.value);
-    data.value = response;
+    try {
+      const res = await itemApi.indexCategory(category.value);
+      data.value = res;
+    } catch {
+      data.value = [];
+    }
   }
 
   getData();

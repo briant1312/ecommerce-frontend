@@ -7,8 +7,10 @@
   const { isVisible } = toRefs(props);
   const username = ref("");
   const password = ref("");
+  const confirm = ref("");
   const errorMessage = ref("");
   const { updateUser } = inject("user");
+  const signIn = ref(false);
 
   watch(isVisible, () => {
     if (isVisible.value) {
@@ -18,11 +20,7 @@
     }
   })
 
-  async function handleSubmit() {
-    if (!username || !password) {
-      return;
-    }
-
+  async function handleLogin() {
     const userObj = {
       username: username.value,
       password: password.value
@@ -38,25 +36,70 @@
       errorMessage.value = error.message;
     }
   }
+
+  async function handleSignup() {
+    if (password.value !== confirm.value) {
+      errorMessage.value = "Passwords do not match"
+      return;
+    }
+
+    const userObj = {
+      username: username.value,
+      password: password.value
+    }
+
+    try {
+      const user = await userApi.signup(userObj);
+      updateUser(user);
+      username.value = "";
+      password.value = "";
+      confirm.value = "";
+      emits("closeModal");
+    } catch (error) {
+      errorMessage.value = error.message;
+    }
+  }
 </script>
 
 <template>
   <Teleport to="body">
     <div class="modal-background" v-if="isVisible" @click="$emit('closeModal')"></div>
-    <form @submit.prevent="handleSubmit" class="login-form" v-if="isVisible">
+    <form @submit.prevent="handleLogin" class="login-form" v-if="isVisible && !signIn">
       <span class="close" @click="$emit('closeModal')">&times</span>
       <label for="">username</label>
-      <input v-model="username" type="text" placeholder="Enter Username">
+      <input v-model="username" type="text" placeholder="Enter Username" required>
       <label for="">password</label>
-      <input v-model="password" type="password" placeholder="Enter Password">
+      <input v-model="password" type="password" placeholder="Enter Password" required>
       <p v-if="errorMessage.length">{{ errorMessage }}</p>
       <button>Login</button>
+      <p>Need an account?</p>
+      <span class="sign-in" @click="signIn = true">Sign Up</span>
+    </form>
+    <form @submit.prevent="handleSignup" class="signup-form" v-if="isVisible && signIn">
+      <span class="close" @click="$emit('closeModal')">&times</span>
+      <label for="">username</label>
+      <input v-model="username" type="text" placeholder="Enter Username" required>
+      <label for="">password</label>
+      <input v-model="password" type="password" placeholder="Enter Password" required>
+      <label for="">confirm</label>
+      <input v-model="confirm" type="password" placeholder="Re-Enter Password" required>
+      <p v-if="errorMessage.length">{{ errorMessage }}</p>
+      <button>Login</button>
+      <p>Already have an account?</p>
+      <span class="sign-up" @click="signIn = false">Sign In</span>
     </form>
   </Teleport>
 </template>
 
 <style scoped>
-  .login-form {
+  .sign-in,
+  .sign-up {
+    cursor: pointer;
+    color: blue;
+  }
+
+  .login-form,
+  .signup-form {
     position: absolute;
     left: 50%;
     top: 50%;

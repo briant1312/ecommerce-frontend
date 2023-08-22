@@ -39,18 +39,6 @@ export async function signup(user) {
 }
 
 export function getUser() {
-    const token = getToken();
-    if (token) {
-        const payload = token.split('.')[1];
-        const decodedPayload = atob(payload);
-        const parsedPayload = JSON.parse(decodedPayload);
-        return parsedPayload.user;
-    } else {
-        return null;
-    }
-}
-
-export function getToken() {
     const token = localStorage.getItem('token') ;
 
     if (!token) return null;
@@ -63,6 +51,6 @@ export function getToken() {
         localStorage.removeItem('token');
         return null;
     } else {
-        return token;
+        return parsedPayload.user;
     }
 }

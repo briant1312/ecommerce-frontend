@@ -2,8 +2,9 @@
   import { RouterView } from 'vue-router'
   import { ref, provide } from 'vue';
   import Navbar from './components/Navbar.vue';
+  import { getUser } from './utilities/user';
 
-  const user = ref(null);
+  const user = ref(getUser());
 
   function updateUser(userInfo) {
     user.value = userInfo;

@@ -19,6 +19,25 @@ export async function login(user) {
     return getUser();
 }
 
+export async function signup(user) {
+    const res = await fetch(BASE_URL, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(user)
+    })
+
+    if (!res.ok) {
+        const message = await res.json();
+        throw new Error(message);
+    }
+
+    const token = await res.json();
+    localStorage.setItem("token", token);
+    return getUser();
+}
+
 export function getUser() {
     const token = getToken();
     if (token) {
@@ -30,7 +49,6 @@ export function getUser() {
         return null;
     }
 }
-
 
 export function getToken() {
     const token = localStorage.getItem('token') ;

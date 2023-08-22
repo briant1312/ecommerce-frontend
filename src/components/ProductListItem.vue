@@ -5,7 +5,7 @@
   const props = defineProps(['product']);
 
   function showItem(id) {
-    router.push(`/show/${id}`)
+    router.push(`/show/${id}`);
   }
 </script>
 

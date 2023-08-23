@@ -15,7 +15,7 @@
   }
   
   if (!Object.keys(categories).includes(props.category)) {
-    router.push({name: "notfound"})
+    router.push({name: "notfound"});
   }
 </script>
 

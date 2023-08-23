@@ -6,24 +6,37 @@
   const userDropdownVisible = ref(false);
   const loginFormVisible = ref(false);
   const { user, updateUser } = inject("user");
+  const isNewUser = ref(false);
 
   function closeForm() {
     loginFormVisible.value = false;
   }
 
+  function updateIsNewUser() {
+    isNewUser.value = !isNewUser.value;
+  }
+
   function handleLoginButtonClick() {
     loginFormVisible.value = true;
     userDropdownVisible.value = false;
+    isNewUser.value = false;
+  }
+
+  function handleSignupButtonClick() {
+    loginFormVisible.value = true;
+    userDropdownVisible.value = false;
+    isNewUser.value = true;
   }
 
   function handleLogout() {
     localStorage.removeItem("token");
+    userDropdownVisible.value = false;
     updateUser(null);
   }
 </script>
 
 <template>
-  <LoginForm :isVisible="loginFormVisible" @close-modal="closeForm"/>
+  <LoginForm :isVisible="loginFormVisible" @update-is-new-user="updateIsNewUser" @close-modal="closeForm" :isNewUser="isNewUser"/>
   <div class="nav-header">
     <span class="title">Merch</span>
     <div class="user-icon" @mouseenter="userDropdownVisible = true" @mouseleave="userDropdownVisible = false">
@@ -31,11 +44,13 @@
         <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
       </svg>
       <div class="user-dropdown" v-if="userDropdownVisible && !user">
-        <button @click="handleLoginButtonClick">Log In</button>
+        <div @click="handleLoginButtonClick">Log In</div>
+        <div @click="handleSignupButtonClick">Sign Up</div>
       </div>
       <div class="user-dropdown" v-else-if="userDropdownVisible">
-        <p>{{ user.username }}</p>
-        <button @click="handleLogout">Logout</button>
+        <div>Profile</div>
+        <div>Orders</div>
+        <div @click="handleLogout" class="logout-button">Logout</div>
       </div>
     </div>
     <div class="cart-icon">
@@ -72,7 +87,8 @@
     position: relative;
     cursor: pointer;
     margin-left: auto;
-    margin-right: 1em;
+    margin-right: .5em;
+    padding-inline: 1em;
   }
 
   .cart-icon {
@@ -82,12 +98,25 @@
 
   .user-dropdown {
     z-index: 10;
-    border: 1px solid red;
+    border: 1px solid #A29B9C;
     position: absolute;
     top: 30px;
-    left: -20px;
-    width: 4rem;
-    padding: 1em;
+    left: -30px;
+    width: 8rem;
+    background-color: white;
+  }
+
+  .user-dropdown div {
+    width: 100%;
+    padding: .8em 0 .8em 0;
+    cursor: pointer;
+    text-align: center;
+    font-size: 1.2rem;
+  }
+
+  .user-dropdown div:hover {
+    background-color: #1E1E26;
+    color: white;
   }
 
   .title {

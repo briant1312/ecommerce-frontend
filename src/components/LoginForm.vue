@@ -58,27 +58,35 @@
       errorMessage.value = error.message;
     }
   }
+
+  function closeModal() {
+    emits("closeModal");
+      username.value = "";
+      password.value = "";
+      confirm.value = "";
+      errorMessage.value = "";
+  }
 </script>
 
 <template>
   <Teleport to="body">
-    <div class="modal-background" v-if="isVisible" @click="$emit('closeModal')"></div>
+    <div class="modal-background" v-if="isVisible" @click="closeModal"></div>
     <form @submit.prevent="handleLogin" class="login-form" v-if="isVisible && !isNewUser">
-      <span class="close" @click="$emit('closeModal')">&times</span>
+      <span class="close" @click="closeModal">&times</span>
       <input v-model="username" type="text" placeholder="Username" required>
       <input v-model="password" type="password" placeholder="Password" required>
-      <p v-if="errorMessage.length">{{ errorMessage }}</p>
       <button>Login</button>
+      <p v-if="errorMessage.length" class="error-message">{{ errorMessage }}</p>
       <p>Need an account?</p>
       <span class="sign-in" @click="$emit('updateIsNewUser')">Sign Up</span>
     </form>
     <form @submit.prevent="handleSignup" class="signup-form" v-if="isVisible && isNewUser">
-      <span class="close" @click="$emit('closeModal')">&times</span>
+      <span class="close" @click="closeModal">&times</span>
       <input v-model="username" type="text" placeholder="Username" required>
       <input v-model="password" type="password" placeholder="Password" required>
       <input v-model="confirm" type="password" placeholder="Confirm Password" required>
-      <p v-if="errorMessage.length">{{ errorMessage }}</p>
       <button>Login</button>
+      <p v-if="errorMessage.length" class="error-message">{{ errorMessage }}</p>
       <p>Already have an account?</p>
       <span class="sign-up" @click="$emit('updateIsNewUser')">Sign In</span>
     </form>
@@ -140,6 +148,11 @@
   .login-form button:hover,
   .signup-form button:hover {
     background-color: #2E2E3D;
+  }
+
+  .error-message {
+    margin-bottom: 0;
+    color: #FD5C66
   }
 
   .close {

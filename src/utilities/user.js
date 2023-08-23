@@ -39,18 +39,30 @@ export async function signup(user) {
 }
 
 export function getUser() {
-    const token = localStorage.getItem('token') ;
+    const token = getToken();
+    if (token) {
+        const payload = token.split('.')[1];
+        const decodedPayload = atob(payload);
+        const parsedPayload = JSON.parse(decodedPayload);
+        return parsedPayload.user;
+    } else {
+        return null;
+    }
+}
 
-    if (!token) return null;
+export function getToken() {
+    const token = localStorage.getItem('token') 
 
-    const payload = token.split('.')[1];
-    const decodedPayload = atob(payload);
-    const parsedPayload = JSON.parse(decodedPayload);
+    if (!token) return null
+
+    const payload = token.split('.')[1]
+    const decodedPayload = atob(payload)
+    const parsedPayload = JSON.parse(decodedPayload)
 
     if(parsedPayload.exp < Date.now() / 1000) {
-        localStorage.removeItem('token');
-        return null;
+        localStorage.removeItem('token')
+        return null
     } else {
-        return parsedPayload.user;
+        return token
     }
 }

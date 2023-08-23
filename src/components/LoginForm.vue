@@ -1,16 +1,15 @@
 <script setup>
   import { toRefs, watch, ref, inject } from 'vue';
   import * as userApi from "../utilities/user.js"
-  const props = defineProps(['isVisible']);
-  const emits = defineEmits(['closeModal']);
+  const props = defineProps(['isVisible', 'isNewUser']);
+  const emits = defineEmits(['closeModal', 'updateIsNewUser']);
 
-  const { isVisible } = toRefs(props);
+  const { isVisible, isNewUser } = toRefs(props);
   const username = ref("");
   const password = ref("");
   const confirm = ref("");
   const errorMessage = ref("");
   const { updateUser } = inject("user");
-  const signIn = ref(false);
 
   watch(isVisible, () => {
     if (isVisible.value) {
@@ -64,29 +63,24 @@
 <template>
   <Teleport to="body">
     <div class="modal-background" v-if="isVisible" @click="$emit('closeModal')"></div>
-    <form @submit.prevent="handleLogin" class="login-form" v-if="isVisible && !signIn">
+    <form @submit.prevent="handleLogin" class="login-form" v-if="isVisible && !isNewUser">
       <span class="close" @click="$emit('closeModal')">&times</span>
-      <label for="">username</label>
-      <input v-model="username" type="text" placeholder="Enter Username" required>
-      <label for="">password</label>
-      <input v-model="password" type="password" placeholder="Enter Password" required>
+      <input v-model="username" type="text" placeholder="Username" required>
+      <input v-model="password" type="password" placeholder="Password" required>
       <p v-if="errorMessage.length">{{ errorMessage }}</p>
       <button>Login</button>
       <p>Need an account?</p>
-      <span class="sign-in" @click="signIn = true">Sign Up</span>
+      <span class="sign-in" @click="$emit('updateIsNewUser')">Sign Up</span>
     </form>
-    <form @submit.prevent="handleSignup" class="signup-form" v-if="isVisible && signIn">
+    <form @submit.prevent="handleSignup" class="signup-form" v-if="isVisible && isNewUser">
       <span class="close" @click="$emit('closeModal')">&times</span>
-      <label for="">username</label>
-      <input v-model="username" type="text" placeholder="Enter Username" required>
-      <label for="">password</label>
-      <input v-model="password" type="password" placeholder="Enter Password" required>
-      <label for="">confirm</label>
-      <input v-model="confirm" type="password" placeholder="Re-Enter Password" required>
+      <input v-model="username" type="text" placeholder="Username" required>
+      <input v-model="password" type="password" placeholder="Password" required>
+      <input v-model="confirm" type="password" placeholder="Confirm Password" required>
       <p v-if="errorMessage.length">{{ errorMessage }}</p>
       <button>Login</button>
       <p>Already have an account?</p>
-      <span class="sign-up" @click="signIn = false">Sign In</span>
+      <span class="sign-up" @click="$emit('updateIsNewUser')">Sign In</span>
     </form>
   </Teleport>
 </template>
@@ -95,7 +89,9 @@
   .sign-in,
   .sign-up {
     cursor: pointer;
-    color: blue;
+    color: #3E3F48;
+    font-size: 1.1em;
+    text-decoration: underline;
   }
 
   .login-form,
@@ -107,16 +103,51 @@
     display: flex;
     padding: 4em;
     flex-direction: column;
-    background-color: lightgray;
-    border-radius: 20px;
+    background-color: #F6F7F9;
+    border-radius: 5px;
+  }
+
+  .login-form input,
+  .signup-form input {
+    padding: .5em;
+    font-size: 1.2rem;
+    margin-bottom: 1em;
+    border: 1px solid black;
+    background-color: transparent;
+  }
+
+  .login-form input::placeholder,
+  .signup-form input::placeholder {
+    color: #4B4B4B;
+  }
+
+  .login-form p,
+  .signup-form p {
+    font-size: 1.1em;
+  }
+
+  .login-form button,
+  .signup-form button {
+    margin-top: 1em;
+    padding: .5em;
+    font-size: 1.2rem;
+    color: white;
+    background-color: #1E1E26;
+    cursor: pointer;
+    transition: all .2s;
+  }
+
+  .login-form button:hover,
+  .signup-form button:hover {
+    background-color: #2E2E3D;
   }
 
   .close {
     cursor: pointer;
     position: absolute;
-    top: .5em;
-    right: 1em;
-    font-size: 1.5rem;
+    top: .2em;
+    right: .5em;
+    font-size: 2rem;
   }
 
   .modal-background {

@@ -3,13 +3,28 @@
   import { ref, provide, watch } from 'vue';
   import Navbar from './components/Navbar.vue';
   import { getUser } from './utilities/user';
-  import { getCart } from './utilities/orders'
+  import { getCart, getOrderCount } from './utilities/orders'
 
   const user = ref(getUser());
   const cartId = ref(null);
+  const totalItems = ref(0);
 
   function updateUser(userInfo) {
     user.value = userInfo;
+  }
+
+  async function updateTotalItems(newCount=null) {
+    if (newCount !== null) {
+      totalItems.value = newCount;
+      return;
+    }
+    if (!cartId.value) {
+      return;
+    }
+    
+    const count = await getOrderCount(cartId.value);
+    if (!count) return;
+    totalItems.value = count;
   }
 
   async function updateCartId() {
@@ -17,6 +32,7 @@
       try {
         const userCartId = await getCart();
         cartId.value = userCartId.id;
+        await updateTotalItems();
       } catch {
         return;
       }
@@ -32,7 +48,9 @@
 
   provide('cart', {
     cartId,
-    updateCartId
+    updateCartId,
+    totalItems,
+    updateTotalItems,
   })
 
   updateCartId()

@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import CategoryView from "../views/CategoryView.vue"
 import NotFoundView from "../views/NotFoundView.vue"
 import ShowProductView from "../views/ShowProductView.vue"
+import CheckoutView from "../views/CheckoutView.vue"
 
 const router = createRouter({
   scrollBehavior () {
@@ -28,18 +29,15 @@ const router = createRouter({
       props: true
     },
     {
+      path: '/checkout',
+      name: 'checkout',
+      component: CheckoutView,
+    },
+    {
       path: '/:pathMatch(.*)*',
       name: 'notfound',
       component: NotFoundView,
     },
-    // {
-    //   path: '/about',
-    //   name: 'about',
-    //   // route level code-splitting
-    //   // this generates a separate chunk (About.[hash].js) for this route
-    //   // which is lazy-loaded when the route is visited.
-    //   component: () => import('../views/AboutView.vue')
-    // }
   ]
 })
 

@@ -1,13 +1,15 @@
 <script setup>
   import * as itemApi from "../utilities/items.js";
-  import { ref } from 'vue';
+  import { inject, ref } from 'vue';
   import { useRouter } from 'vue-router';
+  import { addItemToCart } from "../utilities/orders"
   
   const router = useRouter();
   const props = defineProps(['id']);
 
   const data = ref({});
   const orderQty = ref(1);
+  const { cartId, updateTotalItems } = inject("cart");
 
   function validateOrderQty() {
     if (orderQty.value > data.value.qty) {
@@ -30,6 +32,11 @@
     }
   }
   getData();
+
+  async function addToCart() {
+    await addItemToCart(cartId.value, data.value.id, orderQty.value);
+    await updateTotalItems();
+  }
 </script>
 
 <template>
@@ -42,7 +49,7 @@
       <p>${{ data.price }}</p>
       <p>{{ data.description }}</p>
       <p>qty in stock: {{ data.qty }}</p>
-      <button>Add to cart</button>
+      <button @click="addToCart">Add to cart</button>
       <input @change="validateOrderQty()" v-model.number="orderQty" type="number" min="1" :max="data.qty">
     </div> 
   </div>

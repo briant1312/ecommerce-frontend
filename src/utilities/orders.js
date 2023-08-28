@@ -46,7 +46,7 @@ export async function getOrderCount(orderId) {
     if (!token) return;
 
     try {
-        const res = await fetch(BASE_URL + `/count/${orderId}`, {
+        const res = await fetch(BASE_URL + `count/${orderId}`, {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${token}`
@@ -54,6 +54,24 @@ export async function getOrderCount(orderId) {
         })
         const count = await res.json();
         return count;
+    } catch (error) {
+        console.error(error.message);
+    }
+}
+
+export async function getItems(orderId) {
+    const token = getToken();
+    if (!token) return;
+    
+    try {
+        const res = await fetch(BASE_URL + `items/${orderId}`, {
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            },
+        })
+        const data = res.json();
+        return data;
     } catch (error) {
         console.error(error.message);
     }

@@ -30,6 +30,7 @@
       updateUser(user);
       username.value = "";
       password.value = "";
+      errorMessage.value = "";
       emits("closeModal");
     } catch (error) {
       errorMessage.value = error.message;
@@ -53,6 +54,7 @@
       username.value = "";
       password.value = "";
       confirm.value = "";
+      errorMessage.value = "";
       emits("closeModal");
     } catch (error) {
       errorMessage.value = error.message;
@@ -61,6 +63,14 @@
 
   function closeModal() {
     emits("closeModal");
+      username.value = "";
+      password.value = "";
+      confirm.value = "";
+      errorMessage.value = "";
+  }
+
+  function switchForm() {
+    emits("updateIsNewUser");
       username.value = "";
       password.value = "";
       confirm.value = "";
@@ -78,7 +88,7 @@
       <button>Login</button>
       <p v-if="errorMessage.length" class="error-message">{{ errorMessage }}</p>
       <p>Need an account?</p>
-      <span class="sign-in" @click="$emit('updateIsNewUser')">Sign Up</span>
+      <span class="sign-in" @click="switchForm">Sign Up</span>
     </form>
     <form @submit.prevent="handleSignup" class="signup-form" v-if="isVisible && isNewUser">
       <span class="close" @click="closeModal">&times</span>
@@ -88,7 +98,7 @@
       <button>Login</button>
       <p v-if="errorMessage.length" class="error-message">{{ errorMessage }}</p>
       <p>Already have an account?</p>
-      <span class="sign-up" @click="$emit('updateIsNewUser')">Sign In</span>
+      <span class="sign-up" @click="switchForm">Sign In</span>
     </form>
   </Teleport>
 </template>

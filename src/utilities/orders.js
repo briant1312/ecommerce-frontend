@@ -41,6 +41,29 @@ export async function addItemToCart(orderId, itemId, qty) {
     }
 }
 
+export async function removeItemFromCart(orderId, itemId, qty) {
+    const token = getToken();
+    if (!token) return;
+    try {
+        const body = {
+            orderId,
+            itemId,
+            qty
+        }
+        const res = await fetch(BASE_URL + "remove", {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            },
+            body: JSON.stringify(body)
+        })
+        return res;
+    } catch (error) {
+        console.error(error.message);
+    }
+}
+
 export async function getOrderCount(orderId) {
     const token = getToken();
     if (!token) return;
@@ -72,6 +95,23 @@ export async function getItems(orderId) {
         })
         const data = res.json();
         return data;
+    } catch (error) {
+        console.error(error.message);
+    }
+}
+
+export async function completeOrder(orderId) {
+    const token = getToken();
+    if (!token) return;
+    
+    try {
+        return await fetch(BASE_URL + `${orderId}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            },
+        })
     } catch (error) {
         console.error(error.message);
     }

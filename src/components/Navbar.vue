@@ -36,6 +36,7 @@
     userDropdownVisible.value = false;
     updateTotalItems(0);
     updateUser(null);
+    router.push({ name: "home"});
   }
 
   function goToCheckout() {

@@ -1,10 +1,10 @@
 <script setup>
   import { inject, ref, watch } from 'vue';
-  import { getItems } from "../utilities/orders"
+  import { getItems, completeOrder } from "../utilities/orders"
   import OrderListItem from './OrderListItem.vue';
 
   const orderItems = ref([]);
-  const { cartId } = inject("cart");
+  const { cartId, updateCartId } = inject("cart");
   const orderTotal = ref(0);
 
   async function getData() {
@@ -23,12 +23,17 @@
   watch(cartId, () => {
     getData();
   })
+
+  async function checkoutOrder() {
+    await completeOrder(cartId.value);
+    await updateCartId();
+  }
 </script>
 
 <template>
   <OrderListItem @fetch-data="getData" v-for="item of orderItems" :item="item"/>
   <p class="order-total">Order Total: ${{ orderTotal.toFixed(2) }}</p>
-  <button>Checkout</button>
+  <button v-if="orderItems.length > 0" @click="checkoutOrder">Checkout</button>
 </template>
 
 <style scoped>

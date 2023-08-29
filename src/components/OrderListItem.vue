@@ -19,10 +19,12 @@
     if (orderQty.value < props.item.qty) {
       const removeQty = props.item.qty - orderQty.value;
       await removeItemFromCart(cartId.value, props.item.id, removeQty);
+      await updateTotalItems();
       emits('fetchData');
     } else {
       const addQty = orderQty.value - props.item.qty;
       await addItemToCart(cartId.value, props.item.id, addQty);
+      await updateTotalItems();
       emits('fetchData');
     }
   }

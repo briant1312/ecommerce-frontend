@@ -99,3 +99,20 @@ export async function getItems(orderId) {
         console.error(error.message);
     }
 }
+
+export async function completeOrder(orderId) {
+    const token = getToken();
+    if (!token) return;
+    
+    try {
+        return await fetch(BASE_URL + `${orderId}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            },
+        })
+    } catch (error) {
+        console.error(error.message);
+    }
+}

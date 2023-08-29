@@ -23,7 +23,8 @@
     }
     
     const count = await getOrderCount(cartId.value);
-    if (!count) return;
+    if (count === undefined) return;
+
     totalItems.value = count;
   }
 

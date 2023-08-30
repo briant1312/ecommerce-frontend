@@ -1,9 +1,9 @@
 <script setup>
-  import OrderList from '../components/OrderList.vue'
+  import CheckoutList from '../components/CheckoutList.vue'
 </script>
 
 <template>
-  <OrderList />
+  <CheckoutList />
 </template>
 
 <style scoped>

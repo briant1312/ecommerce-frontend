@@ -4,6 +4,8 @@ import CategoryView from "../views/CategoryView.vue"
 import NotFoundView from "../views/NotFoundView.vue"
 import ShowProductView from "../views/ShowProductView.vue"
 import CheckoutView from "../views/CheckoutView.vue"
+import OrderView from "../views/OrderView.vue"
+import ShowOrderView from "../views/ShowOrderView.vue"
 
 const router = createRouter({
   scrollBehavior () {
@@ -32,6 +34,17 @@ const router = createRouter({
       path: '/checkout',
       name: 'checkout',
       component: CheckoutView,
+    },
+    {
+      path: '/orders',
+      name: 'orders',
+      component: OrderView,
+    },
+    {
+      path: '/order/:orderId',
+      name: 'showOrder',
+      component: ShowOrderView,
+      props: true
     },
     {
       path: '/:pathMatch(.*)*',

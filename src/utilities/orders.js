@@ -97,6 +97,7 @@ export async function getItems(orderId) {
         return data;
     } catch (error) {
         console.error(error.message);
+        return [];
     }
 }
 
@@ -114,5 +115,24 @@ export async function completeOrder(orderId) {
         })
     } catch (error) {
         console.error(error.message);
+    }
+}
+
+export async function getCompletedOrders() {
+    const token = getToken();
+    if (!token) return;
+    
+    try {
+        const res =  await fetch(BASE_URL, {
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            },
+        })
+        const orders = await res.json();
+        return orders;
+    } catch (error) {
+        console.error(error.message);
+        return [];
     }
 }

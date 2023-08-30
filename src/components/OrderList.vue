@@ -1,48 +1,28 @@
 <script setup>
-  import { inject, ref, watch } from 'vue';
-  import { getItems, completeOrder } from "../utilities/orders"
+  import { ref } from 'vue';
+  import { getCompletedOrders } from '../utilities/orders';
   import OrderListItem from './OrderListItem.vue';
+  
+  const orders = ref([]);
 
-  const orderItems = ref([]);
-  const { cartId, updateCartId } = inject("cart");
-  const orderTotal = ref(0);
-
-  async function getData() {
-    if (!cartId.value) return;
-    
-    const items = await(getItems(cartId.value));
-    orderItems.value = items;
-    orderTotal.value = 0;
-    items.forEach(item => {
-      let price = item.price * item.qty;
-      orderTotal.value += price;
-    })
+  async function getOrders() {
+    const allOrders = await getCompletedOrders(); 
+    orders.value = allOrders;
   }
-  getData();
-
-  watch(cartId, () => {
-    getData();
-  })
-
-  async function checkoutOrder() {
-    await completeOrder(cartId.value);
-    await updateCartId();
-  }
+  getOrders();
 </script>
 
 <template>
-  <OrderListItem @fetch-data="getData" v-for="item of orderItems" :item="item"/>
-  <p class="order-total">Order Total: ${{ orderTotal.toFixed(2) }}</p>
-  <button v-if="orderItems.length > 0" @click="checkoutOrder">Checkout</button>
+  <div class="order-list-container">
+    <OrderListItem v-for="order of orders" :order="order"/> 
+  </div>
 </template>
 
 <style scoped>
-.order-total {
-  margin-left: 10rem;
-  font-size: 1.3rem;
-}
-
-button {
-  margin-left: 10rem;
-}
+  .order-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-inline: 10rem;
+  }
 </style>

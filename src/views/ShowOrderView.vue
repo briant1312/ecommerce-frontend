@@ -22,7 +22,7 @@
 
 <template>
   <div class="container">
-    <div class="item" v-for="item of items">
+    <div class="product-card" v-for="item of items">
       <img :src="item.image_url" alt="piece of clothing" class="product-image"/>
       <div class="product-info">
         <p class="name">{{ item.name }}</p>
@@ -41,11 +41,11 @@
   }
 
   p {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
   }
 
   .name {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
 
   .order-total {
@@ -56,13 +56,12 @@
     display: flex;
     flex-direction: column;
     margin-inline: 10rem;
-    gap: 3em;
   }
 
-  .item {
-    border: 1px solid red;
-    padding: 1em;
+  .product-card {
     display: flex;
+    margin: 1em 0 2em 0;
     gap: 10em;
+    box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.5);
   }
 </style>

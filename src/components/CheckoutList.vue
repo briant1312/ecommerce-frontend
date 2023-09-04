@@ -32,7 +32,7 @@
 
 <template>
   <h2 v-if="orderItems.length < 1">There are currently no items in your cart</h2>
-  <CheckoutListItem @fetch-data="getData" v-for="item of orderItems" :item="item"/>
+  <CheckoutListItem @fetch-data="getData" v-for="item of orderItems" :item="item" :key="item.id"/>
   <p class="order-total">Order Total: ${{ orderTotal.toFixed(2) }}</p>
   <button v-if="orderItems.length > 0" @click="checkoutOrder">Checkout</button>
 </template>

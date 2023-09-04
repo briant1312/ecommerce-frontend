@@ -40,7 +40,7 @@
       <p class="line-price">total price: ${{ (item.price * item.qty).toFixed(2) }}</p>
     </div>
     <div class="button-container">
-      <button class="remove-item" @click="removeFromCart">Remove All</button>
+      <button class="remove-item" @click="removeFromCart">Remove</button>
       <div class="adjust-qty-container">
         <input v-model.number="orderQty" type="number" min="1" max="100">
         <button @click="adjustItemQty">Adjust Qty</button>
@@ -63,6 +63,10 @@
     justify-content: space-around;
     margin-left: auto;
     margin-right: 3em;
+  }
+
+  .product-info {
+    padding-top: 2em;
   }
 
   input {

@@ -53,7 +53,6 @@
         <div @click="handleSignupButtonClick">Sign Up</div>
       </div>
       <div class="user-dropdown" v-else-if="userDropdownVisible">
-        <div>Profile</div>
         <div @click="router.push({ name: 'orders' })">Orders</div>
         <div @click="handleLogout" class="logout-button">Logout</div>
       </div>

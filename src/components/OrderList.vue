@@ -22,7 +22,6 @@
   .order-list-container {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
     margin-inline: 10rem;
   }
 </style>

@@ -15,8 +15,10 @@
 
 <style scoped>
   .order-container {
-    border: 1px solid red;
+    margin-top: 2em;
     padding: 1em 3em;
+    box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.5);
     cursor: pointer;
+    font-size: 1.2rem;
   }
 </style>

@@ -32,25 +32,35 @@
 
 <template>
   <h2 v-if="orderItems.length < 1">There are currently no items in your cart</h2>
-  <CheckoutListItem @fetch-data="getData" v-for="item of orderItems" :item="item"/>
+  <CheckoutListItem @fetch-data="getData" v-for="item of orderItems" :item="item" :key="item.id"/>
   <p class="order-total">Order Total: ${{ orderTotal.toFixed(2) }}</p>
   <button v-if="orderItems.length > 0" @click="checkoutOrder">Checkout</button>
 </template>
 
 <style scoped>
-.order-total {
-  margin-left: 10rem;
-  font-size: 1.3rem;
-}
+  .order-total {
+    margin-left: 10rem;
+    font-size: 1.3rem;
+  }
 
-button {
-  margin-left: 10rem;
-}
+  button {
+    margin-left: 10rem;
+    font-size: 1.2rem;
+    color: white;
+    background-color: #1E1E26;
+    cursor: pointer;
+    padding: .5em;
+    transition: all .2s;
+  }
 
-h2 {
-  margin-top: 2em;
-  margin-bottom: 2em;
-  text-align: center;
-  color: #636865
-}
+  button:hover {
+    background-color: #2E2E3D;
+  }
+
+  h2 {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    text-align: center;
+    color: #636865
+  }
 </style>

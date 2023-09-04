@@ -40,7 +40,7 @@
       <p class="line-price">total price: ${{ (item.price * item.qty).toFixed(2) }}</p>
     </div>
     <div class="button-container">
-      <button class="remove-item" @click="removeFromCart">Remove All</button>
+      <button class="remove-item" @click="removeFromCart">Remove</button>
       <div class="adjust-qty-container">
         <input v-model.number="orderQty" type="number" min="1" max="100">
         <button @click="adjustItemQty">Adjust Qty</button>
@@ -50,29 +50,53 @@
 </template>
 
 <style scoped>
-.product-card {
-  border: 1px solid red;
-  display: flex;
-  margin-inline: 10em;
-  margin-bottom: 2em;
-  gap: 10em;
-}
+  .product-card {
+    display: flex;
+    margin: 2em 10em 3em 10em;
+    gap: 10em;
+    box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.5);
+  }
 
-.button-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left: auto;
+    margin-right: 3em;
+  }
 
-p {
-  font-size: 1.1rem;
-}
+  .product-info {
+    padding-top: 2em;
+  }
 
-.name {
-  font-size: 1.5rem;
-}
+  input {
+    width: 2.5em;
+    font-size: 1.2rem;
+    padding: .5em;
+  }
 
-.product-image {
-  width: 15rem;
-}
+  button {
+    font-size: 1.2rem;
+    color: white;
+    background-color: #1E1E26;
+    cursor: pointer;
+    padding: .5em;
+    transition: all .2s;
+  }
+
+  button:hover {
+    background-color: #2E2E3D;
+  }
+
+  p {
+    font-size: 1.3rem;
+  }
+
+  .name {
+    font-size: 1.8rem;
+  }
+
+  .product-image {
+    width: 15rem;
+  }
 </style>

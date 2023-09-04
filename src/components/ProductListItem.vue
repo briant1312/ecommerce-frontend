@@ -13,16 +13,15 @@
   <div class="product-card" @click="showItem(product.id)">
     <img :src="product.image_url" alt="piece of clothing" />
     <p>{{ product.name }}</p>
-    <p>{{ product.price }}</p>
+    <p>${{ product.price }}</p>
   </div>
 </template>
 
 <style scoped>
   .product-card {
-    border: 1px solid red;
-    width: 20vw;
+    box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.5);
+    width: 25vw;
     text-align: center;
-    padding: 1em 2em;
     cursor: pointer;
   }
 
@@ -32,5 +31,8 @@
 
   .product-card img {
     width: 100%;
+    aspect-ratio: 5 / 7;
+    object-fit: cover;
+    transform: translate3d(0px, 0px, 0.1px);
   }
 </style>

@@ -144,6 +144,7 @@
   .title {
     margin-left: calc(50% - 4rem);
     font-size: 3rem;
+    font-weight: bold;
   }
 
   nav {
@@ -153,6 +154,7 @@
     padding: 2em 0 2em 0;
     position: sticky;
     top: 0;
+    z-index: 1;
   }
 
   nav a {

@@ -12,8 +12,8 @@
   const { cartId, updateTotalItems } = inject("cart");
 
   function validateOrderQty() {
-    if (orderQty.value > data.value.qty) {
-      orderQty.value = data.value.qty;
+    if (orderQty.value > 100) {
+      orderQty.value = 100;
     } else if (orderQty.value < 1) {
       orderQty.value = 1;
     }
@@ -48,9 +48,8 @@
       <h2>{{ data.name }}</h2>
       <p>${{ data.price }}</p>
       <p>{{ data.description }}</p>
-      <p>qty in stock: {{ data.qty }}</p>
       <button @click="addToCart">Add to cart</button>
-      <input @change="validateOrderQty()" v-model.number="orderQty" type="number" min="1" :max="data.qty">
+      <input @change="validateOrderQty()" v-model.number="orderQty" type="number" min="1" :max="100">
     </div> 
   </div>
 </template>
@@ -59,27 +58,39 @@
   .show-card {
     display: grid;
     grid-template-columns: 50% 50%;
-    margin-top: 3rem;
+    margin: 3rem 5rem;
   }
 
   .product-info {
-    padding: 2em;
+    padding: 2em 6em;
   }
 
   input {
-    width: 2.5rem;
+    width: 2.5em;
+    font-size: 1.2rem;
+    padding: .5em;
   }
 
   .product-info p {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    margin-bottom: 2em;
   }
 
   .product-info h2 {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
 
-  .show-card > * {
-    border: 1px solid red;
+  button {
+    font-size: 1.2rem;
+    color: white;
+    background-color: #1E1E26;
+    cursor: pointer;
+    padding: .5em;
+    transition: all .2s;
+  }
+
+  button:hover {
+    background-color: #2E2E3D;
   }
 
   .image-container img {

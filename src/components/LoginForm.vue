@@ -123,6 +123,7 @@
     flex-direction: column;
     background-color: #F6F7F9;
     border-radius: 5px;
+    z-index: 10;
   }
 
   .login-form input,
@@ -181,5 +182,6 @@
     height: 100vh;
     background-color: rgba(30, 30, 30, .9);
     backdrop-filter: blur(3px);
+    z-index: 2;
   }
 </style>

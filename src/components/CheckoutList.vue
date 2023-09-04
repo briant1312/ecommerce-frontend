@@ -38,19 +38,29 @@
 </template>
 
 <style scoped>
-.order-total {
-  margin-left: 10rem;
-  font-size: 1.3rem;
-}
+  .order-total {
+    margin-left: 10rem;
+    font-size: 1.3rem;
+  }
 
-button {
-  margin-left: 10rem;
-}
+  button {
+    margin-left: 10rem;
+    font-size: 1.2rem;
+    color: white;
+    background-color: #1E1E26;
+    cursor: pointer;
+    padding: .5em;
+    transition: all .2s;
+  }
 
-h2 {
-  margin-top: 2em;
-  margin-bottom: 2em;
-  text-align: center;
-  color: #636865
-}
+  button:hover {
+    background-color: #2E2E3D;
+  }
+
+  h2 {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    text-align: center;
+    color: #636865
+  }
 </style>

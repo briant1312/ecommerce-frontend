@@ -4,10 +4,12 @@
 
 <template>
   <div>
-    404 not found
+    <h2>404 not found</h2>
   </div>
 </template>
 
 <style scoped>
-
+  h2 {
+    text-align: center;
+  }
 </style>

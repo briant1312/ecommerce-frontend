@@ -53,7 +53,7 @@
   .product-card {
     display: flex;
     margin: 2em 10em 3em 10em;
-    gap: 10em;
+    gap: 8em;
     box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.5);
   }
 
@@ -63,6 +63,7 @@
     justify-content: space-around;
     margin-left: auto;
     margin-right: 3em;
+    flex-shrink: 0;
   }
 
   .product-info {

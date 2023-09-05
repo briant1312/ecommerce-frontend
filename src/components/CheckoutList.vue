@@ -5,6 +5,7 @@
 
   const orderItems = ref([]);
   const { cartId, updateCartId } = inject("cart");
+  const { user } = inject("user");
   const orderTotal = ref(0);
 
   async function getData() {
@@ -31,7 +32,8 @@
 </script>
 
 <template>
-  <h2 v-if="orderItems.length < 1">There are currently no items in your cart</h2>
+  <h2 v-if="orderItems.length < 1 && user">There are currently no items in your cart</h2>
+  <h2 v-else-if="!user">Please login to user cart</h2>
   <CheckoutListItem @fetch-data="getData" v-for="item of orderItems" :item="item" :key="item.id"/>
   <p class="order-total">Order Total: ${{ orderTotal.toFixed(2) }}</p>
   <button v-if="orderItems.length > 0" @click="checkoutOrder">Checkout</button>

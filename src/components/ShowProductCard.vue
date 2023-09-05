@@ -51,6 +51,7 @@
       <p>{{ data.description }}</p>
       <button @click="addToCart" :class="{ disabled: !user }">Add to cart</button>
       <input @change="validateOrderQty()" v-model.number="orderQty" type="number" min="1" :max="100">
+      <div v-if="!user" class="tooltip">Login to add</div>
     </div> 
   </div>
 </template>
@@ -61,7 +62,7 @@
     grid-template-columns: 50% 50%;
     margin: 3rem 5rem;
   }
-
+  
   .product-info {
     padding: 2em 6em;
   }
@@ -97,11 +98,23 @@
   
   .disabled {
     background-color: rgba(30,30,38,.3); 
+    cursor: auto;
   }
 
   .disabled:hover {
     background-color: rgba(30,30,38,.3); 
-    cursor: auto;
+  }
+
+  .tooltip {
+    opacity: 0;
+    transform: translateY(-.5em);
+    transition: all .2s;
+    pointer-events: none;
+  }
+
+  button:hover ~ .tooltip {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .image-container img {

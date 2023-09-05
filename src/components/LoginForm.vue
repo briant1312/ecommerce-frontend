@@ -143,11 +143,13 @@
   .login-form p,
   .signup-form p {
     font-size: 1.1em;
+    margin-bottom: 1em;
   }
 
   .login-form button,
   .signup-form button {
     margin-top: 1em;
+    margin-bottom: 1em;
     padding: .5em;
     font-size: 1.2rem;
     color: white;

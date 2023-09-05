@@ -41,6 +41,7 @@
   }
 
   p {
+    margin: 1em 0 1em 0;
     font-size: 1.3rem;
   }
 

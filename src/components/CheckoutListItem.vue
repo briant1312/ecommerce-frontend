@@ -66,7 +66,7 @@
   }
 
   .product-info {
-    padding-top: 2em;
+    padding-top: 3.5em;
   }
 
   input {
@@ -90,6 +90,7 @@
 
   p {
     font-size: 1.3rem;
+    margin-bottom: 1em;
   }
 
   .name {

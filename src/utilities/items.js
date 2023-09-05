@@ -11,6 +11,7 @@ export async function indexCategory(category) {
         return data;
     } catch (error) {
         console.error(error.message);
+        return [];
     }
 }
 

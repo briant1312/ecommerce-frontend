@@ -141,7 +141,8 @@
   }
 
   .title {
-    margin-left: calc(50% - 4rem);
+    margin-left: 50%;
+    transform: translateX(-50%);
     font-size: 3rem;
     font-weight: bold;
     cursor: pointer;

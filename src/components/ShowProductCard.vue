@@ -68,9 +68,9 @@
   }
 
   input {
-    width: 2.5em;
+    width: 2.8em;
     font-size: 1.2rem;
-    padding: .5em;
+    padding: .5em 0 .5em .2em;
   }
 
   .product-info p {

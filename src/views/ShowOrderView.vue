@@ -36,6 +36,10 @@
 </template>
 
 <style scoped>
+  .container {
+    margin-top: 2em;
+  }
+
   .product-image {
     width: 15rem;
   }

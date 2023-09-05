@@ -15,6 +15,7 @@ export async function getCart() {
         return data;
     } catch (error) {
         console.error(error.message);
+        return null;
     }
 }
 

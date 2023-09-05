@@ -1,4 +1,6 @@
 const BASE_URL = import.meta.env.VITE_APP_BASE_URL + "items/"
+console.log(import.meta.env.VITE_APP_BASE_URL)
+console.log(BASE_URL)
 
 export async function indexCategory(category) {
     try {

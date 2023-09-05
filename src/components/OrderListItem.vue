@@ -16,9 +16,13 @@
 <style scoped>
   .order-container {
     margin-top: 2em;
-    padding: 1em 3em;
+    padding: 2em 4em;
     box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.5);
     cursor: pointer;
     font-size: 1.2rem;
+  }
+
+  p {
+    margin-bottom: 1em;
   }
 </style>

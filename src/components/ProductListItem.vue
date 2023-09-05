@@ -26,7 +26,8 @@
   }
 
   .product-card p {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    margin: 1em 0 1em 0;
   }
 
   .product-card img {

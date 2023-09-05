@@ -43,6 +43,7 @@
   .order-total {
     margin-left: 10rem;
     font-size: 1.3rem;
+    margin-bottom: 1em;
   }
 
   button {

@@ -82,6 +82,7 @@
     display: flex;
     align-items: center;
     padding: 2em 0 2em 0;
+    background-color: white;
   }
 
   svg {

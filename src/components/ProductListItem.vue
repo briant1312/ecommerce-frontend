@@ -23,6 +23,7 @@
     width: 25vw;
     text-align: center;
     cursor: pointer;
+    background-color: white;
   }
 
   .product-card p {

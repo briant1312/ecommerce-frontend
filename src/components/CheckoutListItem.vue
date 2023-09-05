@@ -55,6 +55,7 @@
     margin: 2em 10em 3em 10em;
     gap: 8em;
     box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.5);
+    background-color: white;
   }
 
   .button-container {

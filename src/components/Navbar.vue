@@ -109,10 +109,10 @@
     background-color: #FC000A;
     border-radius: 50%;
     color: white;
-    top: -.6em;
-    right: -.6em;
-    width: 1.2rem;
-    height: 1.2rem;
+    top: -.7em;
+    right: -.7em;
+    width: 1.3rem;
+    height: 1.3rem;
     justify-content: center;
     align-items: center;
   }

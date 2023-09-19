@@ -32,7 +32,7 @@
 
 <template>
   <div class="product-card">
-    <img :src="`src/assets/images/${item.image_url}`" alt="product" class="product-image">
+    <img :src="item.image_url" alt="product" class="product-image">
     <div class="product-info">
       <p class="name">{{ item.name }}</p>
       <p class="qty">qty: {{ item.qty }}</p>

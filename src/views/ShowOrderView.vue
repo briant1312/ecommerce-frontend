@@ -23,7 +23,7 @@
 <template>
   <div class="container">
     <div class="product-card" v-for="item of items">
-      <img :src="`../src/assets/images/${item.image_url}`" alt="piece of clothing" class="product-image"/>
+      <img :src="item.image_url" alt="piece of clothing" class="product-image"/>
       <div class="product-info">
         <p class="name">{{ item.name }}</p>
         <p class="qty">qty: {{ item.qty }}</p>

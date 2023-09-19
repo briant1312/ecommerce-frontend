@@ -11,7 +11,7 @@
 
 <template>
   <div class="product-card" @click="showItem(product.id)">
-    <img :src="`src/assets/images/${product.image_url}`" alt="piece of clothing" />
+    <img :src="product.image_url" alt="piece of clothing" />
     <p>{{ product.name }}</p>
     <p>${{ product.price }}</p>
   </div>

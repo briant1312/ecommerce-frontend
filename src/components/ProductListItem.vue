@@ -11,7 +11,7 @@
 
 <template>
   <div class="product-card" @click="showItem(product.id)">
-    <img :src="product.image_url" alt="piece of clothing" />
+    <img :src="`src/assets/images/${product.image_url}`" alt="piece of clothing" />
     <p>{{ product.name }}</p>
     <p>${{ product.price }}</p>
   </div>
@@ -20,7 +20,7 @@
 <style scoped>
   .product-card {
     box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.5);
-    width: 25vw;
+    width: 20vw;
     text-align: center;
     cursor: pointer;
   }

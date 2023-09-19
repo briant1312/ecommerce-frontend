@@ -43,7 +43,7 @@
 <template>
   <div class="show-card">
     <div class="image-container">
-      <img :src="data.image_url" alt="product">
+      <img :src="`../src/assets/images/${data.image_url}`" alt="product">
     </div>
     <div class="product-info">
       <h2>{{ data.name }}</h2>

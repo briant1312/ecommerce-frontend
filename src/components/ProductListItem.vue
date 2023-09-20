@@ -20,7 +20,7 @@
 <style scoped>
   .product-card {
     box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.5);
-    width: 25vw;
+    width: 20vw;
     text-align: center;
     cursor: pointer;
     background-color: white;

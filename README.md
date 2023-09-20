@@ -1,35 +1,20 @@
-# ecommerce-frontend
+# Merch
+I was tired of building MERN apps and decided to try and learn a few new skills so I built an ecommerce website. Merch is pretty much just a dummy ecommerce website that allows users to login, add / remove things from their cart, checkout, view past orders, etc.
 
-This template should help get you started developing with Vue 3 in Vite.
+## Screenshots
+<img src="./screenshots/homepage.png" width="80%">
+<img src="./screenshots/login.png" width="80%">
+<img src="./screenshots/item_list.png" width="80%">
+<img src="./screenshots/show_item.png" width="80%">
+<img src="./screenshots/checkout.png" width="80%">
 
-## Recommended IDE Setup
+## Technologies Used
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+- Vue
+- Express
+- PostgreSQL
+- pg-promise
 
-## Customize configuration
+## Getting Started
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-npm run test:unit
-```
+Click [here](https://merch-kpad.onrender.com/) and you can browse any item you would like. Hover the user icon and click "create account" to begin adding things to your cart. Once you are done, click the cart icon and checkout after making any changes you like.

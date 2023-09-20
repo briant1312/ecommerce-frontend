@@ -9,7 +9,7 @@
   <div class="order-container" @click="router.push(`/order/${order.id}`)">
     <p>Order Id: {{order.id}}</p>
     <p>Total Items: {{order.total_items}}</p>
-    <p>Order Total: {{order.total_price}}</p>
+    <p class="total">Order Total: ${{order.total_price}}</p>
   </div>
 </template>
 
@@ -25,5 +25,11 @@
 
   p {
     margin-bottom: 1em;
+  }
+
+  .total {
+    margin-top: 2em;
+    margin-bottom: 0;
+    font-weight: bold;
   }
 </style>

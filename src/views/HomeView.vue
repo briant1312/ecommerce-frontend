@@ -55,4 +55,38 @@ p {
   margin-inline: auto;
 }
 
+@media screen and (max-width: 50em) {
+  .section-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .section-container p {
+    padding: 3em 0 5em 0;
+  }
+
+  .section-container:nth-child(even) {
+    flex-direction: column-reverse;
+  }
+
+  .hero {
+    aspect-ratio: auto;
+  }
+}
+
+@media screen and (max-width: 37.5em) {
+  img {
+    max-height: 30rem;
+  }
+
+  .hero {
+    min-height: 80vh;
+    object-fit: cover;
+  }
+
+  .section-container p {
+    padding: 1em 0 3em 0;
+  }
+}
+
 </style>

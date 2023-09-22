@@ -200,10 +200,6 @@
     background-color: white;
   }
 
-  .user-dropdown-mobile {
-    top: 40px;
-  }
-
   .user-dropdown div,
   .user-dropdown-mobile div {
     width: 100%;

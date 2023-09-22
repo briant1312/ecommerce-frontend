@@ -179,9 +179,9 @@
   .modal-background {
     top: 0;
     left: 0;
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
+    position: fixed;
+    width: 110vw;
+    height: 110vh;
     background-color: rgba(30, 30, 30, .9);
     backdrop-filter: blur(3px);
     z-index: 2;
@@ -196,6 +196,7 @@
     .login-form,
     .signup-form {
       padding: 3.5em;
+      padding-top: 4em;
     }
 
     .login-form input,

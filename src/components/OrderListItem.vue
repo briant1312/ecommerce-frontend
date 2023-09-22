@@ -32,4 +32,11 @@
     margin-bottom: 0;
     font-weight: bold;
   }
+
+  @media screen and (max-width: 37.5em) {
+    .order-container {
+      padding: 1em 2em;
+      font-size: 1rem;
+    }
+  }
 </style>

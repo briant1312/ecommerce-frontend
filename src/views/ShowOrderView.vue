@@ -55,6 +55,7 @@
 
   .order-total {
     font-size: 1.3rem;
+    font-weight: bold;
   }
 
   .container {
@@ -68,5 +69,63 @@
     margin: 1em 0 2em 0;
     gap: 10em;
     box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.5);
+  }
+
+  @media screen and (max-width: 75em) {
+    .product-image {
+      width: 13rem;
+    }
+
+    .container {
+      margin: 2em 5em 3em 5em;
+    }
+  }
+
+  @media screen and (max-width: 62.5em) {
+    .product-image {
+      width: 10rem;
+    }
+
+    .product-card {
+      gap: 5em;
+    }
+
+    p {
+      font-size: 1.1rem;
+    }
+
+    .name {
+      font-size: 1.4rem;
+    }
+  }
+
+  @media screen and (max-width: 50em) {
+    .container {
+      margin: 2em 3em 3em 3em;
+    }
+  }
+
+  @media screen and (max-width: 37.5em) {
+    p {
+      font-size: .9rem;
+    }
+
+    .name {
+      font-size: 1.1rem;
+    }
+
+    .product-card {
+      gap: 3em;
+    }
+
+    .product-image {
+      width: 8rem;
+    }
+  }
+
+  @media screen and (max-width: 30em) {
+    .container {
+      margin: 2em 1.5em 3em 1.5em;
+    }
   }
 </style>

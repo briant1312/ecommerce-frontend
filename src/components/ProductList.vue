@@ -38,4 +38,10 @@
     margin-top: 3em;
     justify-content: center;
   }
+
+  @media screen and (max-width: 37.5em) {
+    .product-card-container {
+      gap: 1.5em;
+    }
+  }
 </style>

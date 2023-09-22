@@ -186,4 +186,32 @@
     backdrop-filter: blur(3px);
     z-index: 2;
   }
+
+  @media screen and (max-width: 37.5em) {
+    .sign-in,
+    .sign-up {
+      font-size: .9em;
+    }
+
+    .login-form,
+    .signup-form {
+      padding: 3.5em;
+    }
+
+    .login-form input,
+    .signup-form input {
+      font-size: 1rem;
+    }
+
+    .login-form p,
+    .signup-form p {
+      font-size: .9em;
+      margin-bottom: 1em;
+    }
+
+    .login-form button,
+    .signup-form button {
+      font-size: 1rem;
+    }
+  }
 </style>

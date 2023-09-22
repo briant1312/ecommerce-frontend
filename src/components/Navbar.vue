@@ -309,7 +309,7 @@
     .burger::after {
       display: inline-block;
       width: 30px;
-      height: 5px;
+      height: 4px;
       background-color: black;
       position: relative;
       z-index: 1000;
@@ -336,6 +336,12 @@
       background-color: rgba(30, 30, 30, .9);
       backdrop-filter: blur(3px);
       z-index: 9998;
+    }
+  }
+
+  @media screen and (max-width: 30em) {
+    .title {
+      font-size: 2.2rem;
     }
   }
 </style>

@@ -37,4 +37,23 @@
     object-fit: cover;
     transform: translate3d(0px, 0px, 0.1px);
   }
+
+  @media screen and (max-width: 68.75em) {
+    .product-card {
+      width: 25vw;
+    }
+  }
+
+  @media screen and (max-width: 50em) {
+    .product-card {
+      width: 35vw;
+    }
+  }
+
+  @media screen and (max-width: 37.5em) {
+    .product-card {
+      width: 40%;
+      margin-bottom: 2em;
+    }
+  }
 </style>

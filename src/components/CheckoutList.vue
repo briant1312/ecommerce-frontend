@@ -67,4 +67,35 @@
     text-align: center;
     color: #636865
   }
+
+
+  @media screen and (max-width: 75em) {
+    .order-total {
+      margin-left: 5em;
+    }
+
+    button {
+      margin-left: 5em;
+    }
+  }
+
+  @media screen and (max-width: 62.5em) {
+    .order-total {
+      margin-left: 2em;
+    }
+
+    button {
+      margin-left: 2em;
+    }
+  }
+
+  @media screen and (max-width: 37.5em) {
+    button {
+      font-size: 1.1rem;
+    }
+
+    .order-total {
+      font-size: 1.1rem;
+    }
+  }
 </style>

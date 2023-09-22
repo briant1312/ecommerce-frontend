@@ -32,4 +32,16 @@
     flex-direction: column;
     margin-inline: 10rem;
   }
+
+  @media screen and (max-width: 62.5em) {
+    .order-list-container {
+      margin-inline: 5em;
+    }
+  }
+
+  @media screen and (max-width: 50em) {
+    .order-list-container {
+      margin-inline: 2em;
+    }
+  }
 </style>

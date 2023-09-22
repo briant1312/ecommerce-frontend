@@ -55,6 +55,7 @@
     margin: 2em 10em 3em 10em;
     gap: 8em;
     box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.5);
+    background-color: white;
   }
 
   .button-container {
@@ -100,5 +101,101 @@
 
   .product-image {
     width: 15rem;
+  }
+
+  @media screen and (max-width: 75em) {
+    .product-image {
+      width: 13rem;
+    }
+
+    .product-card {
+      margin: 2em 5em 3em 5em;
+      gap: 6em;
+    }
+
+    button {
+      font-size: 1rem;
+    }
+
+    input {
+      font-size: 1rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+    }
+
+    .name {
+      font-size: 1.4rem;
+    }
+  }
+
+  @media screen and (max-width: 62.5em) {
+    .product-image {
+      width: 10rem;
+    }
+
+    .product-card {
+      margin: 2em;
+    }
+
+    .product-info {
+      padding-top: 1em;
+    }
+  }
+
+  @media screen and (max-width: 50em) {
+    button {
+      font-size: .8rem;
+    }
+
+    input {
+      font-size: .8rem;
+    }
+
+    .product-card {
+      gap: 2.5em;
+    }
+  }
+
+  @media screen and (max-width: 37.5em) {
+    .product-card {
+      display: grid;
+      grid-template-areas:
+        "image info"
+        "buttons buttons";
+      grid-template-columns: 1fr 1fr;
+      padding: 1em;
+      gap: 1em;
+    }
+
+    .product-image {
+      grid-area: image;
+      width: 100%;
+    }
+
+    .product-info {
+      grid-area: info;
+    }
+
+    .button-container {
+      grid-area: buttons;
+    }
+
+    .button-container {
+      flex-direction: row-reverse;
+      justify-items: space-between;
+      margin: 0;
+    }
+  }
+
+  @media screen and (max-width: 30em) {
+    p {
+      font-size: .9rem;
+    }
+
+    .name {
+      font-size: 1.1rem;
+    }
   }
 </style>

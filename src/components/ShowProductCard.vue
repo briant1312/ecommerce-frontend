@@ -121,4 +121,36 @@
   .image-container img {
     width: 100%;
   }
+
+  @media screen and (max-width: 68.75em) {
+    .product-info {
+      padding-left: 3em;
+      padding-right: 1em;
+    }
+  }
+
+  @media screen and (max-width: 50em) {
+    .product-info {
+      padding-left: 3em;
+      padding-right: 1em;
+    }
+
+    .show-card {
+      margin: 3rem 2rem;
+    }
+
+    .product-info p {
+      font-size: 1.2rem;
+    }
+
+    .product-info h2 {
+      font-size: 2rem;
+    }
+  }
+
+  @media screen and (max-width: 37.5em) {
+    .show-card {
+      grid-template-columns: 1fr;
+    }
+  }
 </style>

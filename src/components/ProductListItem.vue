@@ -35,7 +35,6 @@
     width: 100%;
     aspect-ratio: 5 / 7;
     object-fit: cover;
-    transform: translate3d(0px, 0px, 0.1px);
   }
 
   @media screen and (max-width: 68.75em) {

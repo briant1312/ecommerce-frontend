@@ -50,6 +50,11 @@
     document.querySelector(".mobile-nav").style.transform = "translateX(-100%)"
   }
 
+  function navigateToOrders() {
+    userDropdownVisible.value = false;
+    router.push({ name: 'orders' })
+  }
+
   watch(mobileNavVisible, () => {
     if (mobileNavVisible.value) {
       document.body.style.overflow = "hidden";
@@ -104,7 +109,7 @@
         <div @click="handleSignupButtonClick">Sign Up</div>
       </div>
       <div class="user-dropdown-mobile" v-else-if="userDropdownVisible">
-        <div @click="router.push({ name: 'orders' })">Orders</div>
+        <div @click="navigateToOrders">Orders</div>
         <div @click="handleLogout" class="logout-button">Logout</div>
       </div>
     </div>
@@ -194,7 +199,7 @@
     z-index: 10;
     border: 1px solid #A29B9C;
     position: absolute;
-    top: 30px;
+    top: 35px;
     left: -30px;
     width: 8rem;
     background-color: white;
@@ -209,7 +214,8 @@
     font-size: 1.2rem;
   }
 
-  .user-dropdown div:hover {
+  .user-dropdown div:hover,
+  .user-dropdown-mobile div:hover {
     background-color: #1E1E26;
     color: white;
   }

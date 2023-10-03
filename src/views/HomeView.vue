@@ -2,24 +2,24 @@
 </script>
 
 <template>
-  <img class="hero" src="../assets/images/hero.avif" alt="wall of clothing store">
+  <img class="hero" src="../assets/images/hero.png" alt="wall of clothing store">
   <main>
     <div class="section-container">
       <p>Be Bold</p>
       <div class="image-container">
-        <img class="section-image" src="../assets/images/woman-in-sweater.avif" alt="">
+        <img class="section-image" src="../assets/images/woman-in-sweater.png" alt="">
       </div>
     </div>
     <div class="section-container">
       <div class="image-container">
-        <img class="section-image" src="../assets/images/shirts.avif" alt="">
+        <img class="section-image" src="../assets/images/shirts.png" alt="">
       </div>
       <p>Be Unique</p>
     </div>
     <div class="section-container">
       <p>Be Adventurous</p>
       <div class="image-container">
-        <img class="section-image" src="../assets/images/man-in-hoodie.avif" alt="">
+        <img class="section-image" src="../assets/images/man-in-hoodie.png" alt="">
       </div>
     </div>
   </main>
@@ -51,6 +51,7 @@ p {
 }
 
 .section-image {
+  width: 55%;
   display: block;
   margin-inline: auto;
 }

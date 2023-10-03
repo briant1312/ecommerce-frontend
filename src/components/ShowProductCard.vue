@@ -43,13 +43,13 @@
 <template>
   <div class="show-card">
     <div class="image-container">
-      <img :src="data.image_url" alt="product">
+      <img v-if="data.image_url" :src="data.image_url" alt="product">
     </div>
     <div class="product-info">
       <h2>{{ data.name }}</h2>
       <p>${{ data.price }}</p>
       <p>{{ data.description }}</p>
-      <button @click="addToCart" :class="{ disabled: !user }">Add to cart</button>
+      <button @click="addToCart" :class="{ disabled: !user || !cartId }">Add to cart</button>
       <input @change="validateOrderQty()" v-model.number="orderQty" type="number" min="1" :max="100">
       <div v-if="!user" class="tooltip">Login to add</div>
     </div> 
